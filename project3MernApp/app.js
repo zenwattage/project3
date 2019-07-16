@@ -8,12 +8,16 @@ const passport = require('./passport');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
 const log = console.log;
 
 const app = express();
+
+
 mongoose.connect('mongodb://localhost/authentication-example', {useNewUrlParser: true});
 
+
+//app.set('PORT', process.env.PORT || 8080);
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -22,6 +26,7 @@ app.use(cookieParser());
 
 app.use('/', indexRouter);
 app.use('/authentication', usersRouter);
+
 app.use(passport.initialize());
 //app.use(passport.session());
 
