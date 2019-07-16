@@ -2,9 +2,9 @@
 
 FOR NOW THIS FILE STRUCTURE IS BEING USED TO ENSURE EVERYTHING IS CONTAINED
 
-    cd into project3MernApp
+    cd project3MernApp
         npm i
 
-    cd into client
+    cd client
         npm i
 
