@@ -8,7 +8,7 @@ const passport = require('./passport');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-const PORT = process.env.PORT || 8080;
+const PORT = 8080;
 const log = console.log;
 
 const app = express();
