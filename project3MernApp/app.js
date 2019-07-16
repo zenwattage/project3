@@ -5,7 +5,6 @@ const logger = require('morgan');
 const mongoose = require('mongoose');
 
 const passport = require('./passport');
-
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const PORT = process.env.PORT || 8080;
@@ -31,9 +30,8 @@ app.use(passport.initialize());
 //app.use(passport.session());
 
 
-app.listen(PORT, () => {
-  log('Server listening on PORT ${PORT}');
-});
+app.listen(PORT, () => 
+  log(`Server listening on PORT ${PORT}`));
 
 
 module.exports = app;
