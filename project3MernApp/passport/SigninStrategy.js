@@ -22,6 +22,8 @@ const LoginStrategy = new Strategy({ usernameField: 'email'}, function(email, pa
       return done('Email or Password not valid', null);
     }
 
+    return done(null, user);
+
   });
 });
 
