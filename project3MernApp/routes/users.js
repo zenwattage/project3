@@ -20,6 +20,7 @@ router.post('/signup', (req, res, next) => {
 });
 
 router.post('/signin', function(req, res, next) {
+  
   passport.authenticate('local-signin', function(error, user, info) {
 
       if (error) {

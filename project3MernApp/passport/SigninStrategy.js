@@ -5,13 +5,11 @@ const salt = bcrypt.genSaltSync(10);
 
 const LoginStrategy = new Strategy({ usernameField: 'email'}, function(email, password, done) {
   //what should be happening once user is signing up
-  User.findOne({
-    email
-  }).lean().exec((err, user) => {
+  User.findOne({ email }).lean().exec((err, user) => {
     if (err) {
       return done(err, null);
     }
-    if (user) {
+    if (!user) {
       return done('No user found', null);
     }
     
