@@ -18,7 +18,13 @@ export default class Login extends Component {
         email,
         password
       }
-    });
+    })
+    .then((response) => {
+      console.log('Data: ', response.data); 
+    })
+    .catch((error) => {
+      console.log('Error: ', error.response); 
+    });;
   };
 
   handleChange = (event) => {

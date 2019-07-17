@@ -18,6 +18,12 @@ export default class Signup extends Component {
         email,
         password
       }
+    })
+    .then((response) => {
+      console.log('Data: ', response.data); 
+    })
+    .catch((error) => {
+      console.log('Error: ', error.response); 
     });
   };
 
