@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+import { } from 'react-router-dom'
 import axios from 'axios';
 
 export default class Login extends Component {
 
   state = {
     email: "",
-    password: ""
+    password: "",
+    errorMessage: ""
   }
 
   handleSubmit = event => {
@@ -20,11 +22,13 @@ export default class Login extends Component {
       }
     })
     .then((response) => {
-      console.log('Data: ', response.data); 
+      this.props.history.push('/profile');
     })
     .catch((error) => {
-      console.log('Error: ', error.response); 
-    });;
+      this.setState({
+        errorMessage: error.response.data.message
+      });
+    });
   };
 
   handleChange = (event) => {
@@ -44,6 +48,7 @@ export default class Login extends Component {
 
               <button>Login</button>
             </form>
+            <p>{this.state.errorMessage}</p>
           </div>
       );
     }

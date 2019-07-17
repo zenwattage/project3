@@ -5,7 +5,8 @@ export default class Signup extends Component {
 
   state = {
     email: "",
-    password: ""
+    password: "",
+    errorMessage: ""
   }
 
   handleSubmit = event => {
@@ -20,10 +21,12 @@ export default class Signup extends Component {
       }
     })
     .then((response) => {
-      console.log('Data: ', response.data); 
+      this.props.history.push('/profile'); 
     })
     .catch((error) => {
-      console.log('Error: ', error.response); 
+      this.setState({
+        errorMessage: error.response.data.message
+      });
     });
   };
 
@@ -44,6 +47,7 @@ export default class Signup extends Component {
 
               <button>Signup</button>
             </form>
+            <p>{this.state.errorMessage}</p>
           </div>
       );
     }
