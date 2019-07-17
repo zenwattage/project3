@@ -11,15 +11,12 @@ router.post('/signup', (req, res, next) => {
 
       if (error) {
         return res.status(500).json({
-          message: 'Oops, something happened',
-          error: error.message || 'Internal Server Error'
+          message: error || 'Oops, something happened!',
         });
       }
 
-       return res.json({
-        message: 'User is now Authenticated!',
-      });
-
+      
+       return res.json(user);
     })(req, res, next);
 });
 
