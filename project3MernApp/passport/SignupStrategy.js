@@ -14,6 +14,8 @@ const SignupStrategy = new Strategy({ passReqToCallback: true, usernameField: 'e
       return done('User already exists', null);
     }
 
+
+
     //get password and encrypt with bcrypt
     const encryptedPassword = bcrypt.hashSync(password, salt);
     let newUser = new User({
