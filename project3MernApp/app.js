@@ -27,13 +27,12 @@ app.use(cookieSession({
   keys: ['key1', 'key2']
 }));
 
-
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/', indexRouter);
 app.use('/authentication', usersRouter);
 
-app.use(passport.initialize());
-app.use(passport.session());
 
 
 app.listen(PORT, () => 
