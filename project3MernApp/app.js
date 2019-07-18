@@ -8,19 +8,17 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const PORT = process.env.PORT || 8080;
 const log = console.log;
+
 const cookieSession = require('cookie-session');
 
 const app = express();
 
-
 mongoose.connect('mongodb://localhost/authentication-example', {useNewUrlParser: true});
-
-
-//app.set('PORT', process.env.PORT || 8080);
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
 
 app.use(cookieSession({
   name: 'session',
@@ -28,6 +26,7 @@ app.use(cookieSession({
 }));
 
 app.use(passport.initialize());
+//add coookie to browser
 app.use(passport.session());
 
 app.use('/', indexRouter);

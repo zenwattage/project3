@@ -3,7 +3,11 @@ import { Redirect } from "react-router-dom";
 import axios from "axios";
 
 export default class Login extends Component {
-  state = {};
+  state = {
+    email: "",
+    password: "",
+    errorMessage: ""
+  };
 
   handleSubmit = event => {
     event.preventDefault();
