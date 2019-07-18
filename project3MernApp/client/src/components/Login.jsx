@@ -21,6 +21,7 @@ export default class Login extends Component {
       }
     })
     .then(response => {
+      //set user 
       const isAuthenticated = response.data.isAuthenticated;
       window.localStorage.setItem('isAuthenticated', isAuthenticated);
       this.props.history.push("/profile");
