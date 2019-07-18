@@ -15,7 +15,18 @@ router.post('/signup', (req, res, next) => {
         });
       }
 
-      return res.json(user);
+      //persistent login
+      req.logIn((error, data) => {
+        if (error) {
+          return res.status(500).json({
+            message: error || 'Oops, something happened!',
+          });
+        }
+
+        //TODO - dont send password to user client
+        return res.json(user);
+
+      });
     })(req, res, next);
 });
 
@@ -29,7 +40,19 @@ router.post('/signin', function(req, res, next) {
         });
       }
       
-      return res.json(user);
+      //persistent login
+      req.logIn((error, data) => {
+        if (error) {
+          return res.status(500).json({
+            message: error || 'Oops, something happened!',
+          });
+        }
+
+        //TODO - dont send password to user client
+        return res.json(user);
+
+      });
+    })(req, res, next);
     })(req, res, next);
 });
 
