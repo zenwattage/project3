@@ -22,7 +22,7 @@ router.post('/signup', (req, res, next) => {
             message: error || 'Oops, something happened!',
           });
         }
-
+        user.isAuthenticated = true;
         //TODO - dont send password to user client
         return res.json(user);
 
@@ -48,11 +48,19 @@ router.post('/signin', function(req, res, next) {
           });
         }
 
+        user.isAuthenticated = true;
         //TODO - dont send password to user client
         return res.json(user);
 
       });
     })(req, res, next);
+});
+
+router.get('/api', (req, res) => {
+  const email = req.users; //req.session.passport.session
+  res.json({
+    message: 'Hello World'
+  });
 });
 
 module.exports = router;

@@ -4,31 +4,18 @@ import axios from 'axios';
 
 export default class Login extends Component {
 
-  state = {
-    email: "",
-    password: "",
-    errorMessage: ""
-  }
+  state = {   
+  };
+
+  componentDidMount = () => {
+    const isAuthenticated = window.localStorage.getItem('isAuthenticated');
+
+    if(isAuthenticated) {
+
+    }
+  };
 
   handleSubmit = event => {
-    event.preventDefault();
-    const { email, password } = this.state;
-    axios.post({
-      url: "/authentication/signin",
-      method: "POST",
-      data: {
-        email,
-        password
-      }
-    })
-    .then((response) => {
-      this.props.history.push('/profile');
-    })
-    .catch((error) => {
-      this.setState({
-        errorMessage: error.response.data.message
-      });
-    });
   };
 
   handleChange = (event) => {
