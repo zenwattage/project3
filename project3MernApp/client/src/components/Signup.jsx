@@ -12,7 +12,7 @@ export default class Signup extends Component {
   handleSubmit = event => {
     event.preventDefault();
     const { email, password } = this.state;
-    axios.post({
+    axios({
       url: "/authentication/signup",
       method: "POST",
       data: {

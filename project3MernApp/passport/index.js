@@ -5,11 +5,11 @@ const User = require('../models/user');
 //const GoogleStrategy = require('./GoogleStrategy');
 
 //add user into passport as a session
-passport.serializeUser(function(user, done) {
+passport.serializeUser(function (user, done) {
   done(null, user.email);
 });
 
-passport.deserializeUser(function(email, done) {
+passport.deserializeUser(function (email, done) {
   User.findOne({ email }).exec((err, user) => {
       done(err, user); //req.user made available
     });

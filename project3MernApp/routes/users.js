@@ -25,7 +25,6 @@ router.post('/signup', (req, res, next) => {
         user.isAuthenticated = true;
         //TODO - dont send password to user client
         return res.json(user);
-
       });
     })(req, res, next);
 });
