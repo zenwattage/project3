@@ -16,7 +16,7 @@ router.post('/signup', (req, res, next) => {
       }
 
       //persistent login
-      req.logIn((error, data) => {
+      req.logIn(user, function(error, data) {
         if (error) {
           return res.status(500).json({
             message: error || 'Oops, something happened!',
@@ -41,7 +41,7 @@ router.post('/signin', function(req, res, next) {
       }
       
       //persistent login
-      req.logIn((error, data) => {
+      req.logIn(user, function(error) {
         if (error) {
           return res.status(500).json({
             message: error || 'Oops, something happened!',
